@@ -23,6 +23,8 @@ private:
   // ............................................................
   // ............................................................
 public:
+
+	// emisora
   EmisoraBLE laEmisora {
 	"GTI-3A", //  nombre emisora
 	  0x004c, // fabricanteID (Apple)
@@ -36,7 +38,11 @@ public:
 public:
 
   // ............................................................
+  /**
+   * ID de las mediciones.
+   */
   // ............................................................
+  
   enum MedicionesID  {
 	CO2 = 11,
 	TEMPERATURA = 12,
@@ -45,19 +51,32 @@ public:
 
   // ............................................................
   // ............................................................
+  // contructor
   Publicador( ) {
 	// ATENCION: no hacerlo aquí. (*this).laEmisora.encenderEmisora();
 	// Pondremos un método para llamarlo desde el setup() más tarde
   } // ()
 
   // ............................................................
+  /**
+   * Enciende la Emisora
+   */
   // ............................................................
+  
   void encenderEmisora() {
 	(*this).laEmisora.encenderEmisora();
   } // ()
 
   // ............................................................
+  /**
+   * publicarCO2(). Publica el valor de Co2
+   * 
+   * @param valorCO2 Valor de la medida
+   * @param contador Contador de escritura del puerto
+   * @param tiempoEspera Intervalo de emision para enviar los datos
+   */
   // ............................................................
+  
   void publicarCO2( int16_t valorCO2, uint8_t contador,
 					long tiempoEspera ) {
 
@@ -93,7 +112,15 @@ public:
   } // ()
 
   // ............................................................
+  /**
+   * publicarTemperatura(). Publica el valor de la temperatura
+   * 
+   * @param valorTemperatura Valor de la medida
+   * @param contador Contador de escritura del puerto
+   * @param tiempoEspera Intervalo de emision para enviar los datos
+   */
   // ............................................................
+  
   void publicarTemperatura( int16_t valorTemperatura,
 							uint8_t contador, long tiempoEspera ) {
 

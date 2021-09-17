@@ -23,6 +23,9 @@ private:
 public:
 
   // .........................................................
+  // Constructor
+  //
+  // @param numero numero del Led
   // .........................................................
   LED (int numero)
 	: numeroLED (numero), encendido(false)
@@ -32,6 +35,9 @@ public:
   }
 
   // .........................................................
+  /**
+   * encender() => Enciende el led
+  */
   // .........................................................
   void encender () {
 	digitalWrite(numeroLED, HIGH); 
@@ -39,6 +45,9 @@ public:
   }
 
   // .........................................................
+  /**
+   * apagar() => Apaga el led
+  */
   // .........................................................
   void apagar () {
 	  digitalWrite(numeroLED, LOW);
@@ -46,6 +55,9 @@ public:
   }
 
   // .........................................................
+  /**
+   * alternar() => Alterna el encendido y el apagado del led
+  */
   // .........................................................
   void alternar () {
 	if (encendido) {
@@ -56,6 +68,11 @@ public:
   } // ()
 
   // .........................................................
+  /**
+   * brillar() => Hace brillar el led durante un periodo de tiempo
+   * 
+   * @param tiempo tiempo a brillar del led
+  */
   // .........................................................
   void brillar (long tiempo) {
 	encender ();

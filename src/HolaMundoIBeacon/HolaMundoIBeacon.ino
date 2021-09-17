@@ -14,6 +14,8 @@
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 #include <bluefruit.h>
+#include <Arduino.h>
+#include <Adafruit_TinyUSB.h> // for Serial
 
 #undef min // vaya tela, están definidos en bluefruit.h y  !
 #undef max // colisionan con los de la biblioteca estándar
@@ -139,9 +141,9 @@ void loop () {
   int valorCO2 = elMedidor.medirCO2();
   
   elPublicador.publicarCO2( valorCO2,
-							cont,
-							1000 // intervalo de emisión
-							);
+              cont,
+              1000 // intervalo de emisión
+              );
   
   // 
   // mido y publico
@@ -149,9 +151,9 @@ void loop () {
   int valorTemperatura = elMedidor.medirTemperatura();
   
   elPublicador.publicarTemperatura( valorTemperatura, 
-									cont,
-									1000 // intervalo de emisión
-									);
+                  cont,
+                  1000 // intervalo de emisión
+                  );
 
   // 
   // prueba para emitir un iBeacon y poner
@@ -161,12 +163,12 @@ void loop () {
   // Al terminar la prueba hay que hacer Publicador::laEmisora privado
   // 
   char datos[21] = {
-	'H', 'o', 'l', 'a',
-	'H', 'o', 'l', 'a',
-	'H', 'o', 'l', 'a',
-	'H', 'o', 'l', 'a',
-	'H', 'o', 'l', 'a',
-	'H'
+  'H', 'o', 'l', 'a',
+  'H', 'o', 'l', 'a',
+  'H', 'o', 'l', 'a',
+  'H', 'o', 'l', 'a',
+  'H', 'o', 'l', 'a',
+  'H'
   };
 
   // elPublicador.laEmisora.emitirAnuncioIBeaconLibre ( &datos[0], 21 );

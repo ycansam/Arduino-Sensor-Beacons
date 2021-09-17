@@ -76,6 +76,10 @@ public:
   public:
 
 	// .........................................................
+	// Caracteristica() Constructor
+	/**
+	 * @param nombreCaracteristica_ nombre de la caracteristica
+	*/
 	// .........................................................
 	Caracteristica( const char * nombreCaracteristica_ )
 	  :
@@ -85,6 +89,15 @@ public:
 	} // ()
 
 	// .........................................................
+	/**
+	 * Caracteristica() Constructor
+	 * 
+	 * @param nombreCaracteristica_ nombre de la caracteristica
+	 * @param props cantidad de props
+	 * @param permisoRead indica el permiso de lectura
+	 * @param permisoWrite indica el permiso de escritura
+	 * @param tam tamaño de la caracteristica
+	*/
 	// .........................................................
 	Caracteristica( const char * nombreCaracteristica_ ,
 					uint8_t props,
@@ -125,6 +138,14 @@ public:
 
   public:
 	// .........................................................
+	/**
+	 * Metodo asignarPropiedadesPermisosYTamanyoDatos() Asigna propiedades, permisos y tamayos de datos a la caracteristica
+	 * 
+	 * @param props cantidad de props
+	 * @param permisoRead indica el permiso de lectura
+	 * @param permisoWrite indica el permiso de escritura
+	 * @param tam tamaño de la caracteristica
+	*/
 	// .........................................................
 	void asignarPropiedadesPermisosYTamanyoDatos( uint8_t props,
 												 BleSecurityMode permisoRead,
@@ -137,6 +158,11 @@ public:
 												 
 
 	// .........................................................
+	/**
+	 * Metodo escribirDatos() Escribe datos a la caracteristica
+	 * 
+	 * @param str datos de la caracteristica
+	*/
 	// .........................................................
 	uint16_t escribirDatos( const char * str ) {
 	  // Serial.print( " return (*this).laCaracteristica.write( str  = " );
@@ -150,6 +176,11 @@ public:
 	} // ()
 
 	// .........................................................
+	/**
+	 * Metodo notificarDatos() Notifica los datos
+	 * 
+	 * @param str datos de la caracteristica
+	*/
 	// .........................................................
 	uint16_t notificarDatos( const char * str ) {
 	  
@@ -159,12 +190,20 @@ public:
 	} //  ()
 
 	// .........................................................
+	/**
+	 * Metodo instalarCallbackCaracteristicaEscrita() Installa un callback
+	 * 
+	 * @param cb funcion Callback a instalar
+	*/
 	// .........................................................
 	void instalarCallbackCaracteristicaEscrita( CallbackCaracteristicaEscrita cb ) {
 	  (*this).laCaracteristica.setWriteCallback( cb );
 	} // ()
 
 	// .........................................................
+	/**
+	 * Metodo activar() Activa las caracteristicas
+	*/
 	// .........................................................
 	void activar() {
 	  err_t error = (*this).laCaracteristica.begin();
@@ -199,6 +238,11 @@ private:
 public:
   
   // .........................................................
+  /**
+   * ServicioEnEmisora() Constructor
+   * 
+   * @param nombreServicio_ nombre del servicio
+   */
   // .........................................................
   ServicioEnEmisora( const char * nombreServicio_ )
 	:
@@ -208,6 +252,9 @@ public:
   } // ()
   
   // .........................................................
+  /**
+   * escribeUUID() Escribe el UUID
+   */
   // .........................................................
   void escribeUUID() {
 	Serial.println ( "**********" );
@@ -218,12 +265,18 @@ public:
   } // ()
 
   // .........................................................
+  /**
+   * anyadirCaracteristica() Añade una caracteristica
+   * 
+   * @param car . Puntero de la caracteristica tipo Caracterisitca
+   */
   // .........................................................
   void anyadirCaracteristica( Caracteristica & car ) {
 	(*this).lasCaracteristicas.push_back( & car );
   } // ()
 
   // .........................................................
+  // activarServicio() => Activa el servicio
   // .........................................................
   void activarServicio( ) {
 	// entiendo que al llegar aquí ya ha sido configurado
