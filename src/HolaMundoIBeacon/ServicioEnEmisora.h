@@ -1,8 +1,8 @@
 // -*- mode: c++ -*-
 
 // ----------------------------------------------------------
-// Jordi Bataller i Mascarell
-// 2019-07-17
+// Yeray Candel Sampedro
+// 2021 - 10 - 18
 // ----------------------------------------------------------
 #ifndef SERVICIO_EMISORA_H_INCLUIDO
 #define SERVICIO_EMISORA_H_INCLUIDO
